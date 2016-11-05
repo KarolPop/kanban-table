@@ -47,7 +47,7 @@ Card.prototype = {
 			method: 'PUT',
 			data: {
 				id: self.id,
-				name: cardName,s
+				name: cardName,
 	 			bootcamp_kanban_column_id: self.columnId	
 			}
 			success: function(data){ 
