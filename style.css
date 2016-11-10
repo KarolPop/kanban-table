@@ -90,7 +90,7 @@ h1 {
 }
 
 
-.column-add-card, .column-delete-card {
+.column-add-card, .column-delete-card, .column-edit-card {
     background-color: #68dbcc;
     border: 0px;
     border-radius: 10px;

@@ -11,7 +11,7 @@ function Card(id, name, columnId) {
 		var cardDeleteBtn = $('<button class="column-delete-card">Usuń kartę</button>');
 		var cardEditBtn = $('<button class="column-edit-card">Edytuj kartę</button>');
 		var cardDescription = $('<p class="card-description"></p>');
-		
+
 		cardDeleteBtn.click(function(){
 			self.removeCard();
 		});
@@ -23,7 +23,7 @@ function Card(id, name, columnId) {
 		card.append(cardDeleteBtn);
 		card.append(cardEditBtn);
 		cardDescription.text(self.name);
-		card.append(cardDescription)
+		card.append(cardDescription);
 		return card;
 	}
 }
@@ -38,9 +38,10 @@ Card.prototype = {
 				self.element.remove();
       		}
     	});
-	}
+	},
 
 	editCard: function() {
+	var cardName = prompt('Wpisz nazwę karty');
 	var self = this;
 		$.ajax({
 			url: baseUrl + '/card/' + self.id,
@@ -49,9 +50,10 @@ Card.prototype = {
 				id: self.id,
 				name: cardName,
 	 			bootcamp_kanban_column_id: self.columnId	
-			}
-			success: function(data){ 
-					$('.card-description').html(data)
+			},
+			success: function(response){ 
+					/*console.log(response);*/
+					self.element.find('.card-description').text(cardName);
  				} 
 		});
 	}
